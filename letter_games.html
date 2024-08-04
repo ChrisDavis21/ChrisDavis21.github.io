@@ -47,29 +47,52 @@
 						<div class="inner">
 							<h1>Letter Games</h1>
 							<h2>Background</h2>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque 
-							venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. 
-							Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada 
-							et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget tu
-							rpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
+							<p> In 2021 Josh Wardle's now famous word game 'Wordle' shot to popularity. Millions of users 
+							were all engaged in playing the daily five-letter word puzzle. Colleagues and friends would share the number of guesses 
+							it took them to find the solution, and the iconic green, gray, and yellow squares became a household visual. Later, the game 
+							would be purchased by the New York Times and put on display with other iconic daily puzzles like Sudoku or the Crossword.  
+							Internet investigators quickly observed that the entirety of the game's solutions were listed in order in the source code, directly searchable with an F12 page-inspect. 
+							With a transparent answer key, each aspect of Wordle's design were fully apparent. Just 2309 words in a list updating each day, one at a time. Six guesses with immediate color-coded feedback. 
+							Something so simple, yet enough to captivate millions.</p>
+							<p> I thought it would be fun to investigate how these words might have been selected or how one could master guess selection in Wordle. To do 
+							so, I will take a deeper look at the available list of words and compare them to the acceptable list of 5-letter words from an even more famous 
+							word game: 'Scrabble'. Using the Collins Scrabble Official Dictionary from 2019, how dissimilar are the words chosen by Josh Wardle to the near complete set accepted by Scrabble (n = 12792)? 
+							Do trends in the data allow us to infer anything about the design of his list? What might these patterns reveal about the structure of the English language? Lastly, what clues can I take from this to be a better Wordle player?</p>
 							<h2>Letter Distributions</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class apten
-							t taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libe
-							ro eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ul
-							tricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nun
-							c lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique s
-							enectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. 
-							Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
+							<p>
+							One of the first things we can look at is how evenly the letters in Wordle solutions are distributed. Should we expect that the words will be 
+							distributed similarly to the whole population of possible words? 
+							</p>
 							<span class="image main"><img src="images/letter_games_1.jpg" alt="" /></span>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor i
-							mperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. P
-							ellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, 
-							elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<p>
+							<b>Figure A</b> shows the distribution of all letters for the complete Wordle list as well as all five-letter words for Scrabble. The histgram's x-axis is every character in the English language,
+							 and the y-axis is the proportional occurence of total character usage. The height of all like-colored bars sum to 1. Colors are split by word list. There are relatively 
+							"obvious" peaks where we might expect. Letters 'a', 'e', 'i', 'o', 'r', 's', 't' are all quite common whereas 'j', 'q', 'x', and 'z' are seldom used.
+							This all makes intuitive sense when we think about the characters we use in everyday words. 
+							<br>
+							<b>Figure B</b> shows a similar distribution to <b>Figure A</b>, except this histogram is the proportional occurence of only the <b>first</b> letter of each word.
+							Notice how <b>Figure B</b> has a very distinct shape compared to <b>Figure A</b>. Much of this is because <b>Figure A</b> is dominated by vowels which are present in every word whereas the first letter of a word has 
+							no bias or predisposition to be a vowel. Now, consonants like 'b', 'c', 'p', 's', and 't' make up a much larger share of the overall pie. Additionally, 'x' has shrunk to an almost insignificant value 
+							because exceptionally few words start with x. Contrarily, q's share has grown because q is far more likely to start a word then to be somewhere in the middle.
+							<br>
+							You might be noticing that the blue and the orange columns are relatively disparate for certain letters. These differences show changes in Josh Wardle's word selection 
+							compared to the "complete" set of five-letter words. At this scale it can be hard to see how much the proportions have changed for each letter. A better way to visualize this data 
+							is to look at the percent difference in values for each letter: 100*(Wordle-Scrabble)/Scrabble.
+							</p>
 							<span class="image main"><img src="images/letter_games_2.png" alt="" /></span>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor i
-							mperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. P
-							ellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, 
-							elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<p>
+							<b>Figure C</b> shows the percent differences for these letters as described above for all letters in a word. Red bars indicate that the letter is proportionately more likely to occur 
+							in a Wordle solution than in the population of all five-letter words. Blue bars mean these characters are disproportionately scarce in Wordle. Clearly scarce letters in Wordle are 'j', 'k', 's', 'x', and 'z'. 
+							<br>
+							For these I could posit a couple guesses as to why these might be more rare in the Wordle game. For 's', it could be that the Scrabble list contains a high number of plural 4-letter nouns that Wardle is intentionally 
+							attempting to avoid including. The game might feel biased towards plurarity if Wardle did not factor this into his selection, and everyone's first guess would end with 's'. As for why j, k, x, and z are more rare, it might 
+							be that Wardle attempted to exclude very difficult words as to not discourage the player. As for why some letters gained proportional useage in Wordle, I do not have many theories except that Wardle may 
+							have attempted to balance the game through character selection as that may lead to a more rounded player experience if more letters had a similar chance of occuring.
+							<br>
+							<b>Figure D</b> is very similar to <b>Figure C</b> only it shows the percent difference for the first letter of words. Much of the story is similar to the previous figure and relies on the same speculation. Why 
+							x, y, and z are so much more rare in Wordle is likely that users know very few if any five-letter words starting with these letters and Wardle did not want the game to be too challenging? I would love to hear your theories 
+							if you have a another idea about these differences.
+							</p>
 							<h2>Expanding to All Positions</h2>
 							<p><span class="image right"><img src="images/letter_games_3.png" alt="" /></span>Fringilla nisl. 
 							Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod.
@@ -91,15 +114,91 @@
 							Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac 
 							pellentesque praesent.</p>
 							<h2>Supplemental Fun</h2>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor i
-							mperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. P
-							ellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, 
-							elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<p>
+							One of the more challenging components from Wordle's design is that duplicate letters are sometimes difficult to identify 
+							as a single green or yellow square provides no indication about potential repeats. Additionally, guessing a duplicate letter does not maximize the amount of 
+							information provided in each guess. Therefore, words with fewer than 5 characters are less conventional and certainly less than optimal guesses. Did the author do anything to 
+							make these words more or less likely than a more complete dictionary?
+							</p>
+							<p>
+							In a fairly simple search, checking the length of the set of each word provides information about how many distinct letters are in a word.
+							For 12972 acceptable Scrabble words, 64.2% have all distinct letters. However, for 2309 Wordle words, 67.6% have distinct characters. Can this 3.4% be attributed 
+							to pure chance? <br>
+							A Chi-squared test of these two populations yields p = 0.003 which is significant at every normal null hypothesis p value. Therefore, 
+							the frequency of duplicate-letter words in Wordle is statistically a different population frequency than the population of Scrabble words. Whether 
+							the author achieved this result by selectively removing duplicate-letter words of if duplicate-letter words are more obscure and would be less familiar to the player-base 
+							is still unclear.
+							</p>
+							
+							<pre><code>
+# Dintinct Letters
+UWords = [[],[],[],[]]
+AWords = [[],[],[],[]]
+for word in WordleList:
+    UWords[len(set(word))-2].append(word)
+for word in FullList:
+    AWords[len(set(word))-2].append(word)
+
+print(f'Words with only 2 letters: {AWords[0]}')
+LetterCountProportions = [[],[],[],[]]
+for j in range(4):
+    LetterCountProportions[j] = [100*len(UWords[j])/sum(len(x) for x in UWords),100*len(AWords[j])/sum(len(x) for x in AWords)]
+print(f'Proportional Breakdown by Number of Distinct Letters')
+print(f'([2 [Wordle, Scrabble]], [3], [4], [5]): {LetterCountProportions}')
+							
+							</code></pre>
+							
+							
+							<p> While Wordle only has one word with two distinct letters ('mamma'), Scrabble accepts nine. These words are written with a 
+							word length to character ratio of 2.5 whereas a word with completely distinct characters has a ratio of 1. With the complete scrabble dictionary available 
+							for our curiosities, are there other words 15 characters or fewer with a higher ratio than 2.5? What about the longest words with a ratio of 1? Any guesses?
+							To determine these words, the following code was used: </p>
+							<pre><code>
+							
+# Supplemental: Highest Ratio of total length to distinct letters for any length word:
+maxlength = 11
+for j, word in enumerate(CollinsList):
+    if len(word)/len(set(word)) >= 3.0: print(f'{word}; {len(word)/len(set(word))}')
+    if len(word)/len(set(word)) == 1.0 and len(word) >= maxlength:
+        print(f'{word}; {len(word)/len(set(word))}')
+        maxlength = len(word)
+							
+							</code></pre>
+							
+							<p>
+							The yield? <br>
+							<br>
+							There were 21 words with a length to character ratio of 3:<br>
+							Antitrinitarian, Araara, Ataata, Beebee, Booboo, Coocoo, Deeded, Doodoo, Kinnikinnick, Mmm, Muumuu, Sasararas, Sassarara,
+							Seeresses, Serenenesses, Sesses, Sestettes, Sleeplessnesses, Weewee, Zoozoo, Zzz.<br>
+							I would debate many of these words if you attempted to play them in a game of Scrabble against me, but fortunately there is a cut-and-dry
+							dictionary that would abritrate that challenge.</p>
+							
+							<p>There were only 3 words with a ratio greater than 3:<br>
+							Senselessness: 3.25<br>
+							Sassararas: 3.33<br>
+							Senselessnesses: 3.75</p>
+							
+							<p>Of all the high ratio words, I think my favorite is Kinnikinnick, a smoking mixture used by Native tribes. It is one 'c' away from 2nd place.</p>
+							
+							<p>There were 2 words with a ratio of 1 and a length of 15:<br>
+							Dermatoglyphics - N. Study of ridge pattrns on skin, typically on hands and feet.<br>
+							Uncopyrightable - Adj. Protected by copyright.</p>
+							
+							<h3>Additional Data Explorations</h3>
+							
+							<ul>
+								<li>Consider if the 2309 ordered words show human bias in ordering - for instance if there are a disproportionate amount 
+							of "similar" subsequent words to random chance. Similar words might be words that start with the same letter or words that contain the same vowels.</li>
+								<li>The length:character ratio explored in the supplemental section uses a data-set only up to 15 characters in length. Are these words replaced 
+							with longer words if words with more characters are included in the dataset?</li>
+							</ul>
+							
 							<h2>Resources</h2>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor i
-							mperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. P
-							ellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, 
-							elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<ul>
+								<li><a href="https://github.com/ChrisDavis21/letter-games">GitHub Repository</a></li>
+								<li>The lengtwith more characters are included in the dataset?</li>
+							</ul>
 						</div>
 					</div>
 
