@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>CC: About</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Chris Charts</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="generic.html">Tempus etiam</a></li>
+							<li><a href="generic.html">Consequat dolor</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>About</h1>
+							<h2>Background</h2>
+							<p> In 2021 Josh Wardle's now famous word game 'Wordle' shot to popularity. Millions of users 
+							were all engaged in playing the daily five-letter word puzzle. Colleagues and friends would share the number of guesses 
+							it took them to find the solution, and the iconic green, gray, and yellow squares became a household visual. Later, the game 
+							would be purchased by the New York Times and put on display with other iconic daily puzzles like Sudoku or the Crossword.  
+							Internet investigators quickly observed that the entirety of the game's solutions were listed in order in the source code, directly searchable with an F12 page-inspect. 
+							With a transparent answer key, each aspect of Wordle's design were fully apparent. Just 2309 words in a list updating each day, one at a time. Six guesses with immediate color-coded feedback. 
+							Something so simple, yet enough to captivate millions.</p>
+							<p><span class="image right"><img src="images/ChrisComo.png" alt="" /></span>
+							What other information could be helfpul in informing guesses? One event is if you know one or more of the letters and are making subsequent guesses. It could be useful to know which characters 
+							are most likely to follow another letter. In <b>Figure G</b> both axes are ordered from a-z where the y-axis is the fist letter and the x-axis is the subsequent letter in the word. The data set used is the complete 
+							set from Scrabble (I didn't want to give too much information away). Cells colored black have <b>zero</b> occurrence in the complete English language of 5-letter words. If you look at column q you will see most of the column is black 
+							because q can only follow a very select few characters (s, i, and rarely a). 
+							<br>
+							Colors from blue to red increasing in color temperature show the likelihood of a letter following another letter in a five-letter word. Every box in one row sums to 1. 
+							The colorbar is normalized differently around the midpoint (0.05) to show a greater range in colors for variation less than 5%. The bar stops at 0.25 so that strong outliers do not bias 
+							the overall colormap scale. There is one cell on this grid that completely saturates all colors and obscures most meaning if the colorbar is uniformly scaled from 0-1, can you tell which 
+							letter pair that is? 
+							<br>
+							The colormap is information dense, and at a brief glimpse out of focus it looks like a vibrant Piet Mondrian piece with an almost city-block pattern of color. A few colorful north-south avenues 
+							stand out to the eye: a, e, i, o, u, and y. It is no surprise that a common subsequent letter for most letters is a vowel. Conversely, f, h, j, q, v, and z all have quite dark 
+							horizontal profiles indicating that they are very selective about the letters they can precede.
+							</p>
+							<h2>Supplemental Fun</h2>
+							<p>
+							One of the more challenging components from Wordle's design is that duplicate letters are sometimes difficult to identify 
+							as a single green or yellow square provides no indication about potential repeats. Additionally, guessing a duplicate letter does not maximize the amount of 
+							information provided in each guess. Therefore, words with fewer than 5 characters are less conventional and certainly less than optimal guesses. Did the author do anything to 
+							make these words more or less likely than a more complete dictionary?
+							</p>
+							<h3>Additional Data Exercises</h3>
+							
+							<ul>
+								<li>Consider if the 2309 ordered words show human bias in ordering - for instance if there are a disproportionate amount 
+							of "similar" subsequent words to random chance. Similar words might be words that start with the same letter or words that contain the same vowels.</li>
+								<li>The length:character ratio explored in the supplemental section uses a data-set only up to 15 characters in length. Are these words replaced 
+							with longer words if words with more characters are included in the dataset?</li>
+							</ul>
+							
+							<h2>Links</h2>
+							<ul>
+								<li><a href="https://github.com/ChrisDavis21/letter-games">GitHub Repository</a></li>
+								<li><a href="https://www.nytimes.com/games/wordle/index.html">Wordle</a></li>
+							</ul>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://github.com/ChrisDavis21" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="chrisdavis367@gmail.com" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Chris Davis. All rights reserved</li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
