@@ -35,7 +35,7 @@
 						<h2>Menu</h2>
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Ipsum veroeros</a></li>
+							<li><a href="generic.html">About</a></li>
 							<li><a href="generic.html">Tempus etiam</a></li>
 							<li><a href="generic.html">Consequat dolor</a></li>
 							<li><a href="elements.html">Elements</a></li>
@@ -84,35 +84,53 @@
 							<b>Figure C</b> shows the percent differences for these letters as described above for all letters in a word. Red bars indicate that the letter is proportionately more likely to occur 
 							in a Wordle solution than in the population of all five-letter words. Blue bars mean these characters are disproportionately scarce in Wordle. Clearly scarce letters in Wordle are 'j', 'k', 's', 'x', and 'z'. 
 							<br>
-							For these I could posit a couple guesses as to why these might be more rare in the Wordle game. For 's', it could be that the Scrabble list contains a high number of plural 4-letter nouns that Wardle is intentionally 
-							attempting to avoid including. The game might feel biased towards plurarity if Wardle did not factor this into his selection, and everyone's first guess would end with 's'. As for why j, k, x, and z are more rare, it might 
-							be that Wardle attempted to exclude very difficult words as to not discourage the player. As for why some letters gained proportional useage in Wordle, I do not have many theories except that Wardle may 
+							I could posit a couple guesses as to why these might be more rare in the Wordle game. For 's', it could be that the Scrabble list contains a high number of plural 4-letter nouns that Wardle is intentionally 
+							attempting to avoid. The game might feel biased towards plurarity if Wardle did not factor this into his selection, and everyone's first guess would end with 's'. As for why j, k, x, and z are more rare, it might 
+							be that Wardle attempted to exclude very difficult words as to not discourage the player. For the letters that gained proportional useage in Wordle, I do not have many theories except that Wardle may 
 							have attempted to balance the game through character selection as that may lead to a more rounded player experience if more letters had a similar chance of occuring.
 							<br>
 							<b>Figure D</b> is very similar to <b>Figure C</b> only it shows the percent difference for the first letter of words. Much of the story is similar to the previous figure and relies on the same speculation. Why 
-							x, y, and z are so much more rare in Wordle is likely that users know very few if any five-letter words starting with these letters and Wardle did not want the game to be too challenging? I would love to hear your theories 
+							x, y, and z are so much more rare in Wordle could be that users know very few, if any, five-letter words starting with these letters, and Wardle did not want the game to be too challenging? I would love to hear your theories 
 							if you have a another idea about these differences.
 							</p>
 							<h2>Expanding to All Positions</h2>
-							<p><span class="image right"><img src="images/letter_games_3.png" alt="" /></span>Fringilla nisl. 
-							Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod.
-							Vestibulum ante ipsum primis in faucibus vestibulum. 
-							Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. 
-							Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. 
-							bus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibu
-							lum ante ipsum primis in faucibus vestibulum. 
-							Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac 
-							pellentesque praesent.</p>
+							<p><span class="image right"><img src="images/letter_games_3.png" alt="" /></span>
+							The previous information is only partially helpful in formulating a Wordle strategy. To better inform strategy, we need to look at all character positions in the five-letter word. 
+							A good way to show information-dense 2-dimensional data is with a heatmap as shown in <b>Figure E</b> and <b>Figure F</b>. Here the characters are displayed from a to z on the y-axis while 
+							character position is on the x-axis. Shades from black to yellow are assigned in increasing likelihood to each square based on proportional occurence of that letter at that location. Each row will sum to 1. 
+							For example, in <b>Figure E</b>, the 'b' character squares from left to right are: [0.62, 0.06, 0.20, 0.08, 0.04]. Therefore, if b is in the word, it has a 62% chance of being in the first position, and is almost never in the last position (4%).
+							<br>
+							Any square between red and yellow shows a letter that has strong bias towards occuring in a particular position, and uniform purple across positions indicates that the letter is well-distributed by position. 
+							Some clear standouts are b, f, j, and q, which are all likely to start the word while y and k are far more likely to end a word. Other interesting letters are u which is most likely seen in the 2nd position (maybe after q?) and z 
+							which is seen in the 4th position, potentially followed by an e or y. 
+							<br>
+							<b>Figure F</b> combines the data in <b>Figure E</b> with the principals of <b>Figures C & D </b>. Blue squares show letter positions that are less likely in Wordle than in all Scrabble five-letter words, and red squares 
+							show the opposite - where a letter is more common in Wordle than in the "complete" list. Clear negative trends are the last letters of j, q, s, u, and v. Many of these are likely because words ending in these characters would be 
+							very difficult guesses, and s could be due to reducing the amount of plurality in the word set. Letters y and k are less likely to occur in any position except the last position, and s is the exact opposite - showing up more often in 
+							the first four positions and less frequently in the last. Do any of these surprise you, or are there other fun patterns you can identify?
+							</p>
 							<h2>Information Density Overload</h2>
-							<p><span class="image left"><img src="images/letter_games_4.png" alt="" /></span>Fringilla nisl. 
-							Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod.
-							Vestibulum ante ipsum primis in faucibus vestibulum. 
-							Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. 
-							Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. 
-							bus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibu
-							lum ante ipsum primis in faucibus vestibulum. 
-							Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac 
-							pellentesque praesent.</p>
+							<p><span class="image left"><img src="images/letter_games_4.png" alt="" /></span>
+							What other information could be helfpul in informing guesses? One event is if you know one or more of the letters and are making subsequent guesses. It could be useful to know which characters 
+							are most likely to follow another letter. In <b>Figure G</b> both axes are ordered from a-z where the y-axis is the fist letter and the x-axis is the subsequent letter in the word. The data set used is the complete 
+							set from Scrabble (I didn't want to give too much information away). Cells colored black have <b>zero</b> occurrence in the complete English language of 5-letter words. If you look at column q you will see most of the column is black 
+							because q can only follow a very select few characters (s, i, and rarely a). 
+							<br>
+							Colors from blue to red increasing in color temperature show the likelihood of a letter following another letter in a five-letter word. Every box in one row sums to 1. 
+							The colorbar is normalized differently around the midpoint (0.05) to show a greater range in colors for variation less than 5%. The bar stops at 0.25 so that strong outliers do not bias 
+							the overall colormap scale. There is one cell on this grid that completely saturates all colors and obscures most meaning if the colorbar is uniformly scaled from 0-1, can you tell which 
+							letter pair that is? 
+							<br>
+							The colormap is information dense, and at a brief glimpse out of focus it looks like a vibrant Piet Mondrian piece with an almost city-block pattern of color. A few colorful north-south avenues 
+							stand out to the eye: a, e, i, o, u, and y. It is no surprise that a common subsequent letter for most letters is a vowel. Conversely, f, h, j, q, v, and z all have quite dark 
+							horizontal profiles indicating that they are very selective about the letters they can precede.
+							
+							<br>
+							The diagonal of the figure shows relative liklihoods of duplicate letters. Some letters that more commonly come in tandem are thus f, o, and z. 
+							Looking between the vowel color walls, a few consonant pairs of warmer colors are visible. A few that stand out after a little scanning are: 'ch', 'ng', 'ck', 'st' and nearly anything 
+							followed by an s.
+							
+							</p>
 							<h2>Supplemental Fun</h2>
 							<p>
 							One of the more challenging components from Wordle's design is that duplicate letters are sometimes difficult to identify 
@@ -125,8 +143,8 @@
 							For 12972 acceptable Scrabble words, 64.2% have all distinct letters. However, for 2309 Wordle words, 67.6% have distinct characters. Can this 3.4% be attributed 
 							to pure chance? <br>
 							A Chi-squared test of these two populations yields p = 0.003 which is significant at every normal null hypothesis p value. Therefore, 
-							the frequency of duplicate-letter words in Wordle is statistically a different population frequency than the population of Scrabble words. Whether 
-							the author achieved this result by selectively removing duplicate-letter words of if duplicate-letter words are more obscure and would be less familiar to the player-base 
+							the frequency of duplicate-letter words in Wordle is statistically different than the population of Scrabble words. Whether 
+							the author achieved this result by selectively removing duplicate-letter words or if duplicate-letter words are more obscure and would be less familiar to the player-base 
 							is still unclear.
 							</p>
 							
@@ -149,7 +167,7 @@ print(f'([2 [Wordle, Scrabble]], [3], [4], [5]): {LetterCountProportions}')
 							</code></pre>
 							
 							
-							<p> While Wordle only has one word with two distinct letters ('mamma'), Scrabble accepts nine. These words are written with a 
+							<p> While Wordle only has one word with two distinct letters ('mamma'), Scrabble accepts nine ('susus', 'peepe', 'nanna', 'taata', 'ayaya', 'mamma', 'anana', 'esses', and 'cocco'). These words are written with a 
 							word length to character ratio of 2.5 whereas a word with completely distinct characters has a ratio of 1. With the complete scrabble dictionary available 
 							for our curiosities, are there other words 15 characters or fewer with a higher ratio than 2.5? What about the longest words with a ratio of 1? Any guesses?
 							To determine these words, the following code was used: </p>
@@ -181,11 +199,11 @@ for j, word in enumerate(CollinsList):
 							
 							<p>Of all the high ratio words, I think my favorite is Kinnikinnick, a smoking mixture used by Native tribes. It is one 'c' away from 2nd place.</p>
 							
-							<p>There were 2 words with a ratio of 1 and a length of 15:<br>
-							Dermatoglyphics - N. Study of ridge pattrns on skin, typically on hands and feet.<br>
+							<p>There were 2 words with a ratio of 1 and a length of 15, meaning that all 15 characters are distinct:<br>
+							Dermatoglyphics - N. Study of ridge patterns on skin, typically on hands and feet.<br>
 							Uncopyrightable - Adj. Protected by copyright.</p>
 							
-							<h3>Additional Data Explorations</h3>
+							<h3>Additional Data Exercises</h3>
 							
 							<ul>
 								<li>Consider if the 2309 ordered words show human bias in ordering - for instance if there are a disproportionate amount 
@@ -194,10 +212,10 @@ for j, word in enumerate(CollinsList):
 							with longer words if words with more characters are included in the dataset?</li>
 							</ul>
 							
-							<h2>Resources</h2>
+							<h2>Links</h2>
 							<ul>
 								<li><a href="https://github.com/ChrisDavis21/letter-games">GitHub Repository</a></li>
-								<li>The lengtwith more characters are included in the dataset?</li>
+								<li><a href="https://www.nytimes.com/games/wordle/index.html">Wordle</a></li>
 							</ul>
 						</div>
 					</div>
