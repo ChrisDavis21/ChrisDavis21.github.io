@@ -51,15 +51,67 @@
 							Predicting the performance or even the direction of individual stocks can be exceptionally challenging. Instead of focusing on a single stock, market traders can employ a pairs trading stategy. 
 							This strategy leverages two often strongly correlated companies or indices and works by exploiting lead-lag effects or mean regression. The underlying concept is that if two correlated stocks diverge, you can take 
 							a long position on the relative underperformer and a short position on the overperformer. Both stocks can go up or down and the return will be mostly neutral, but if the stocks revert to similar relative levels you will make money. 
-							This method is only reliant on mean reversion and therefore can be utilized regardless of overall market performance. The downside is present when the stocks maintain or increase their divergence. 
+							As this method is only reliant on mean reversion, it can therefore be utilized regardless of overall market performance (market neutrality). The downside is present when the stocks maintain or increase their divergence, known as drift. 
 							</p>
 							<p>
-							Pairs trading alone is very strongly exploited in current markets and is not risk-free. To better protect against risk, statistical arbitrage is a variant of pairs trading that captures a large number of stocks at once. 
-							Arbitrage is exploiting the difference in price between two markets to make a profit. Trading companies first find large groups of correlated stocks and assign weights to all of them. They then take positions in these factoring in complex 
+							Pairs trading alone is very prevalent in current markets and is not risk-free. To better protect against risk, statistical arbitrage is a variant of pairs trading that captures a large number of stocks at once. 
+							Arbitrage alone is just the exploitation of differences in price between two markets to make a profit. Statistical arbitrage is a wholistic approach to diversify arbitrage opportunities across a wider space than a single pair - generally dozens or more stocks at once. 
+							Trading companies first find large groups of correlated stocks and assign weights to all of them. They then take positions in these factoring in complex 
 							risk models.
 							</p>
+							<p>
+							The following guide will take you through analyses in time series data with the purpose of making informed financial decisions using applied learning from statistical arbitrage. 
+							Content will be principally statistical, focused around correlation and cointegration of time series data while coding applications will pursue applications of web scraping to pull live data. 
+							Note to the readers that statistical arbitrage requires holding dozens or more positions simultaneously in opposite directions and making frequent adjustments - often on the order of day or hour scales. Maximizing 
+							returns further demands very small transaction fees. These constraints make statistical arbitrage very challenging for the retail investor and any commentary should not be taken as financial advice - I am an engineer not a financial 
+							analyst. 
+							</p>
 							
+							<h2>Pairs Trading: Specialty Chemicals </h2>
+							<p>To start this exploration, consider DuPont de Nemours (DD) and LyondellBasell (LYB) - two massive chemical companies with industry dominance in specialty polymers. 
+							</p>
+							<span class="image main"><img src="images/statistical_arbitrage_1.png" alt="" /></span>
+							<p>In <b>Figure A</b> the adjusted closing price of DD and LYB are shown from August 1st 2019 to August 1 2024. This is a condensed view of all trading on these two companies over the past five years. While 
+							thousands of intra-day movements could be displayed, considering a wide timescale like entire days is more digestible. There is limited benefit in higher resolution to a retail investor like myself who would not trade the same stock multiple times 
+							in one day. Furthermore, very little information is lost with 252 data points per year (all weekdays excluding federal trading holidays).<br>
+							From their stock price data alone, some obvious similarities are apparent. Both stocks have a noticeable dip during Covid emergence in early 2020 followed by almost identical resurgences through the end of 2021. The prices diverge slightly around early to mid 2022 but follow 
+							a shared direction up to present date.</p>
+							<span class="image main"><img src="images/statistical_arbitrage_2.png" alt="" /></span>
+							<p><b>Figure B</b> depicts their daily returns (%) offset by +/- 3%. This is a metric of how much the stock price increased or decreased relative to the day prior and is a very common method for quickly summarizing the daily performance of a stock with one number.
+							At this scale the data is so variable the only consistency is inconsistency. Nevertheless, patterns are present even if the likeness in DD & LYB returns might be more challenging to notice. Instead, let's look at only the past 50 trading days:
+							</p>
+							<span class="image main"><img src="images/statistical_arbitrage_3.png" alt="" /></span>
+							<p>Here the daily returns of each company is clearly quite similar. On 31/50 trading days DuPont and LyondellBasell demonstrate returns within 1% of each other. If we take the average from <b>Figure C</b> and overlay it on Apple's (AAPL) returns over those same 50 days, it is clear 
+							how different the two patterns are. Now on only 40% of days are the average of DD & LYB returns within 1% of AAPL's returns. Some shared returns are expected due to overall market trends, but generally the consumer tech market is moderately independent from specialty 
+							polymers. </p>
+							<p><b>Figures A, B, C, & D </b> are all telling the same story: DuPont and LyondellBasell share an exceptionally similar market performance profile. There is a statical term for this: cointegration. Both DD & LYB are said to be stastically cointegrated (p = 0.04) meaning that there exists some a linear combination of them that is stationary while each compononent is non-stationary. 
+							In partially incorrect but more understandable words, this is a fancy way of saying DD & LYB are correlated with each other over time. 
+							Predicting whether either stock will go up or down is near impossible with only price information; however, it is not unreasonable to assume that if either DD or LYB 
+							price increases or decreases, their counterpart will do the same. The challenge - how do we capitalize on this discovered pattern? <br>
+							Some traders might exploit lag inefficiencies. In this case if one stock began rising rapidly they could predict the other would do the same and might buy the lagging stock. This practice 
+							is only profitable if you have access to information before most of the market and are able to execute on these inefficiencies immediately. To do so requires being involved in high-frequency trading and paying 
+							big bucks for specialized HFT platforms or software that can handle this workload. With hundreds or thousands of daily trades, commissions must be minimized and margins are still low. All of this is infeasible for a retail investor with a day job. <br>
+							Since short term inefficiencies won't work for us, we must focus on longer time scales. If both of these stocks are non stationary (demonstrate trending over time), one easy combination of the two that may be non-stationary is their ratio. Inefficiencies in their price ratio is not limited to intra-day trading and could be a better 
+							opportunity for us.
+							</p>
+							<span class="image main"><img src="images/statistical_arbitrage_4.png" alt="" /></span>
+							<p> 
+							Indeed, a stationarity test of the ratio of LYB / DD yields p = 0.019, a clearly significant number at an alpha level of 0.05. The average ratio depicted with the red dashed line in <b> Figure E </b> is around 1.2. Over the past five years 
+							the ratio of LYB / DD crosses this average ratio dozens of times. Each time it crosses the red-line it is mean reverting. Therefore, our pairs trading strategy focused on arbitraging these two companies assuming mean reversion could work well here. However, if you take a closer look at <b> Figure E </b> you may notice 
+							that the ratio line prior to March 2022 is consistently under 1.2 whereas after March 2022 it seems to stay above 1.2 more often. Not only that, but this five-year ratio does not provide us an opportunity to make adjustments <i>or trades</i> given new information. 
+							Instead, let's look at the same ratio compared to the 1-year rolling average of the ratio. 
+							</p>
+							<span class="image main"><img src="images/statistical_arbitrage_5.png" alt="" /></span>
+							Now any blue sections show points in time.
+							<span class="image main"><img src="images/statistical_arbitrage_6.png" alt="" /></span>
+							<p>
+							adfadf
+							</p>
 							
+							<p>
+							Distance, Cointegration, Copula
+							ARMA - auto regressive moving average models
+							</p>
 							
 							<h2>Links</h2>
 							<ul>
