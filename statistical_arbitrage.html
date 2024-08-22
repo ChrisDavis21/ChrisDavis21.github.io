@@ -102,21 +102,39 @@
 							Instead, let's look at the same ratio compared to the 1-year rolling average of the ratio. 
 							</p>
 							<span class="image main"><img src="images/statistical_arbitrage_5.png" alt="" /></span>
-							Now any blue sections show points in time.
+							<p>
+							With the rolling average ratio approach, the ratio presents more mean reversion events allowing us to capitalize on divergences with greater confidence. The longest period without mean reversion is shorter and we are less exposed to risk. 
+							As for creating a simple strategy framework using this approach, there are a few factors we want to consider. Let's first set an entrance and an exit condition. A good starting point for an entrance condition is whenever the current ratio is more than 2.5% away from the 1-year rolling average ratio. 
+							Then, we should obviously exit our position once the ratio has reverted to this rolling mean. As a safety, we will implement a very basic stop loss condition at multiples of our entrance condition. For example, a 10x stop loss condition means that with a 25% deviation in ratio from the rolling ratio we must exit our position and accept the current loss 
+							to prevent incurring greater losses. More sophisticated models will have far more complex entrance, exit, and stop loss criteria that may consider dozens of factors. These variables are highly tunable and experimenting should be done to select the best parameters for your portfolio and risk level. 
+							
+							</p><p>For the purposes of this investigation, we should make a few 
+							assumptions. The first is that you have a very kind brokerage that charges no trading fees. This may actually be the case if you are a retail investor making very few monthly trades. Second, the model assumes no slippage. Slippage is when the bid price deviates between when the order is placed and when it is executed - effectively it can be very hard to actually 
+							buy X shares at Y price without Y changing very slightly in a short amount of time. 
+							Given these basic parameters and assumptions, we can look at our expected returns if we had implemented this strategy:
+							</p>
 							<span class="image main"><img src="images/statistical_arbitrage_6.png" alt="" /></span>
 							<p>
-							adfadf
+							Plotted in <b> Figure G </b> are the expected returns had we placed our money in entirely DD, entirely LYB, or evenly split it by dollar value between the two. Additionally, the red, green, and cyan lines show how our strategy performs given various stop loss limits. 
+							Notice that the highest risk level happened to produce the greatest returns. This is largely because there were limited diverging events over this time period. You can see in early May 2022 that the red trace with higher risk takes a larger loss than the green trace which exited the unfavorable position before the 
+							red trace. However, the red trace regains its lead after it stays in a position until successful mean reversion around May 2024 instead of exiting prematurely like the green trace. <br>
+							Another critical observation is that two of our strategies outperformed the best stock performer over this period (LYB) as well as the average of both stocks. However, had we waited to buy LYB for one year similar to the first trade we make with our strategy, LYB would net similar final returns. 
+							</p>
+							<p>
+							So what is the point of doing all of this work if we might be better off just guessing one of the two stocks or investing in an overall market index fund? The benefit here is twofold. One is that this strategy outperforms the average of the two stocks meaning we are hedging against ourselves making an incorrect choice in investing in either LYB, DD, or both. 
+							Second and more importantly, one of the principal goals of a market-neutral strategy is that this system is hedged against the market. Therefore, if we invest part of our portfolio in the a general market index fund and part of our portfolio in a market neutral strategy, in the event of a downturn only the market index based component should see substantial losses. Thus, this strategy 
+							hedges both of the two selected stocks as well as overall market performance, working to effectively reducing overall portfolio risk.
 							</p>
 							
+							<h2>Building a Portfolio</h2>
 							<p>
-							Distance, Cointegration, Copula
-							ARMA - auto regressive moving average models
+							Consider now that you want to engage in pairs trading and statistical arbitrage in your personal portfolio. After allocating some percentage of funds to this strategy, how could you go about selecting stocks to long and short, and how might you distribute these funds across the various stocks to either maximize returns, minimize risk, or hedge entire sectors?
 							</p>
 							
 							<h2>Links</h2>
 							<ul>
-								<li><a href="https://github.com/ChrisDavis21/letter-games">GitHub Repository</a></li>
-								<li><a href="https://www.nytimes.com/games/wordle/index.html">Wordle</a></li>
+								<li><a href="https://www.quantitativo.com/">Quantitativo</a></li>
+								<li><a href="https://advisor.morningstar.com/uploaded/pdf/alt_marketneutralmfcs.pdf">Morningstar Market-Neutral Handbook</a></li>
 							</ul>
 						</div>
 					</div>
