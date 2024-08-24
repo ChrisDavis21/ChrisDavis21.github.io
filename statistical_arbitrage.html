@@ -131,6 +131,24 @@
 							Consider now that you want to engage in pairs trading and statistical arbitrage in your personal portfolio. After allocating some percentage of funds to this strategy, how could you go about selecting stocks to long and short, and how might you distribute these funds across the various stocks to either maximize returns, minimize risk, or hedge entire sectors?
 							</p>
 							
+							<p><span class="image right"><img src="images/statistical_arbitrage_7.png" alt="" /></span>
+							Let's start by splitting the entire market into more digestible categories or sectors. <a href="https://finance.yahoo.com/sectors/">Yahoo! Finance: Sectors</a> provides a good overview of these different general industries. DD & LYB are both classified under the "Basic Materials" Sector, so we can select that link to learn more. 
+							Here we can see a table listing the largest companies in this sector sorted by market cap. Let's use Python to scrape the top 100 companies from this list. Then, we can set trading exclusion criteria to see which we can immediatley eliminate. For this analysis I have chosen to yield any stock with less than 30 million dollars of daily trading volume. The idea 
+							is that lower volume stocks may be more challenging to enter or exit positions, and there is both greater risk for slippage (liquidity risk) and less volume to work toward mean reversion (model risk). This reduces the basic materials sector to 50 possible stocks. Then, we can plot the cointegration (<b> Figure H </b>) and correlation (<b> Figure I </b>) for every possible combination. 
+							Only combinations with a cointegration less than 0.075 are shown, and only combinations with correlations greater than 0.6 are shown.
+							<p><span class="image right"><img src="images/statistical_arbitrage_8.png" alt="" /></span>
+							Technically, cointegration values must be less than 0.05 to be statistically significant with an alpha level of 0.05, but we might want to see almost cointegrated stock pairs. This method demonstrates a large number of highly correlated stocks (by returns) as well as several cointegrated pairs exist within the Raw materials market. It is then up to the trader to further explore 
+							each pair in this sector to determine if any are viable for the strategy. Once this sector is complete, the trader may move onto other sectors for better diversification. Alternatively, as this is a market-neutral approach, they may consider one sector sufficient with adequate risk reduction measures. A common risk reduction method would be to split the available trading funds across all identified pairs of interest. 
+							Weighting for each pairing could be determined through a risk model to minimize exposure - many are commercial available (<a href="https://app2.msci.com/products/analytics/models/">See MSCI/Barra Models</a>) but may not be finanically viable for a retail investor.
+							</p>
+							<p>
+							Below are examples of some of these pairs, feel free to plot the rest as part of your own investigation. In <b>Figure J</b> the pair with the highest correlation is overlayed on the pair with the lowest correlation. The black dots of MLM:VMC overwhelming exist around the unity line meaning that generally MLM sees very similar daily returns to VMC. Conversely the blue dots of 
+							AU:ESI have almost no obvious pattern and a bad day for one stock could be fantastic on the other. 
+							<br>
+							In <b>Figure K</b>, LIN, UFPI, and VMC are all cointegrated with each other. Even at a cursory glance a number of similarities between the three traces are evident. 
+							</p>
+							<span class="image main"><img src="images/statistical_arbitrage_9.png" alt="" /></span>
+							
 							<h2>Links</h2>
 							<ul>
 								<li><a href="https://www.quantitativo.com/">Quantitativo</a></li>
