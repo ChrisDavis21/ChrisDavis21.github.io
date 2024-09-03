@@ -2345,14 +2345,22 @@ input, select, textarea {
 			.image.leftM img, .image.rightM img {
 				width: 100%;
 			}
+			
+		.image.leftS, .image.rightS {
+			max-width: 18.0%;
+		}
 
-		.image.leftB, .image.left, .image.leftM {
+			.image.leftS img, .image.rightS img {
+				width: 100%;
+			}
+
+		.image.leftB, .image.left, .image.leftM, .image.leftS {
 			float: left;
 			padding: 0 1.5em 1em 0;
 			top: 0.25em;
 		}
 
-		.image.rightB, .image.right, .image.rightM {
+		.image.rightB, .image.right, .image.rightM, .image.rightS {
 			float: right;
 			padding: 0 0 1em 1.5em;
 			top: 0.25em;
