@@ -294,6 +294,7 @@ input, select, textarea {
 		border: 0;
 		border-bottom: solid 1px #c9c9c9;
 		margin: 2em 0;
+		width:100%;
 	}
 
 		hr.major {
@@ -2707,6 +2708,7 @@ input, select, textarea {
 
 				.tiles article > a:hover {
 					color: #ffffff !important;
+					text-shadow: 0 0 4px #000000;
 				}
 
 				.tiles article > a h2 {
