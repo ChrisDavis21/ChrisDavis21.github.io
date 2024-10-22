@@ -3368,7 +3368,7 @@ input, select, textarea {
 	}
 
 	/* Begin styling the tooltips and pins */
-	.tooltip-up, .tooltip-down {
+	.tooltip-up, .tooltip-down, .tooltip-right{
 		position: absolute;
 		width: 50px;
 		height: 50px;
@@ -3378,51 +3378,42 @@ input, select, textarea {
 		color:white;
 		text-align:left;
 		line-height:25px;
-}
 	}
-
+	
 	.tooltip-down {
 		background-position: 0 -37px;
+	}
+	
+	.tooltip-right {
+		background-position: -37px 0;
 	}
 
 	.tooltip {
 		display: none;
 		width: 300px;
-		/* text-shadow: 0 1px 0 #fff; */
 		position: absolute;
 		top: 10px;
 		left: 50%;
 		z-index: 999;
-		margin-left: -115px;
+		margin-left: -5px;
+		margin-right: -5px;
 		padding:15px;
 		color: rgba(0,0,0,1);
 		border-radius: 5px;
-		/* box-shadow: 0 3px 0 rgba(0,0,0,.7); */
 		background: rgba(255,255,255,0.9);
+		/* box-shadow: 0 3px 0 rgba(0,0,0,.7); */
 		/* background: linear-gradient(top, #fff1d3, #ffdb90);          */
+		/* text-shadow: 0 1px 0 #fff; */
 	}
-
-	/* .tooltip::after { */
-		/* content: ''; */
-		/* position: absolute; */
-		/* top: -10px; */
-		/* left: 0%; */
-		/* margin-left: -10px; */
-		/* border-bottom: 10px solid #fff1d3; */
-		/* border-left: 10px solid transparent; */
-		/* border-right : 10px solid transparent; */
-	/* } */
 
 	.tooltip-down .tooltip {
 		bottom: 12px;
 		top: auto;
 	}
-
-	.tooltip-down .tooltip::after {
-		bottom: -10px;
-		top: auto;
-		/* border-bottom: 0; */
-		/* border-top: 10px solid #ffdb90; */
+	
+	.tooltip-right .tooltip {
+		right: 12px;
+		left: auto;
 	}
 
 	.tooltip h2 {

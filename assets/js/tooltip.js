@@ -13,7 +13,9 @@ $(document).ready(function(){
         // set tooltip direction type - up or down             
         if ($(".pin").eq(i).hasClass('pin-down')) {
             tooltipDirection = 'tooltip-down';
-        } else {
+        }else if ($(".pin").eq(i).hasClass('pin-right')) {
+            tooltipDirection = 'tooltip-right';
+        }else {
             tooltipDirection = 'tooltip-up';
             }
     
@@ -24,7 +26,7 @@ $(document).ready(function(){
     }    
     
     // show/hide the tooltip
-    $('.tooltip-up, .tooltip-down').mouseenter(function(){
+    $('.tooltip-up, .tooltip-down, .tooltip-right').mouseenter(function(){
                 $(this).children('.tooltip').fadeIn(100);
             }).mouseleave(function(){
                 $(this).children('.tooltip').fadeOut(100);
