@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" x="0" y="0" style="fill:gray;stroke:black;stroke-width:5;fill-opacity:0.5;stroke-opacity:0.9" />
+
+
+  <rect width="20" height="20" x="10" y="10" style="fill:yellow;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9" /> 
+  <rect width="20" height="20" x="10" y="90" style="fill:yellow;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9" /> 
+  <rect width="20" height="20" x="10" y="170" style="fill:blue;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9" /> 
+  
+  <rect width="20" height="20" x="50" y="50" style="fill:yellow;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9" /> 
+  <rect width="20" height="20" x="50" y="130" style="fill:blue;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9" /> 
+  
+  <rect width="20" height="20" x="90" y="10" style="fill:yellow;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9" /> 
+  <rect width="20" height="20" x="90" y="90" style="fill:blue;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9" /> 
+  <rect width="20" height="20" x="90" y="170" style="fill:yellow;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9" /> 
+  
+  <rect width="20" height="20" x="130" y="50" style="fill:blue;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9" /> 
+  <rect width="20" height="20" x="130" y="130" style="fill:yellow;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9" /> 
+  
+  <rect width="20" height="20" x="170" y="10" style="fill:blue;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9" /> 
+  <rect width="20" height="20" x="170" y="90" style="fill:yellow;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9" /> 
+  <rect width="20" height="20" x="170" y="170" style="fill:yellow;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9" />
+  
+  
+  <circle cx="60" cy="20" r="10" style="fill:orange;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9"/>
+  <circle cx="140" cy="20" r="10" style="fill:green;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9"/>
+  
+  <circle cx="20" cy="60" r="10" style="fill:orange;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9"/>
+  <circle cx="100" cy="60" r="10" style="fill:green;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9"/>
+  <circle cx="180" cy="60" r="10" style="fill:green;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9"/>
+  
+  <circle cx="60" cy="100" r="10" style="fill:green;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9"/>
+  <circle cx="140" cy="100" r="10" style="fill:green;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9"/>
+  
+  <circle cx="20" cy="140" r="10" style="fill:green;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9"/>
+  <circle cx="100" cy="140" r="10" style="fill:green;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9"/>
+  <circle cx="180" cy="140" r="10" style="fill:orange;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9"/>
+  
+  <circle cx="60" cy="180" r="10" style="fill:green;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9"/>
+  <circle cx="140" cy="180" r="10" style="fill:orange;stroke:black;stroke-width:2;fill-opacity:0.25;stroke-opacity:0.9"/>
+  
+</svg>
