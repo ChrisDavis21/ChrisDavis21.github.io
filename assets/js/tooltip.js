@@ -15,6 +15,12 @@ $(document).ready(function(){
             tooltipDirection = 'tooltip-down';
         }else if ($(".pin").eq(i).hasClass('pin-right')) {
             tooltipDirection = 'tooltip-right';
+		}else if ($(".pin").eq(i).hasClass('pin-bright')) {
+            tooltipDirection = 'tooltip-bright';
+		}else if ($(".pin").eq(i).hasClass('pin-bdown')) {
+            tooltipDirection = 'tooltip-bdown';
+		}else if ($(".pin").eq(i).hasClass('pin-bup')) {
+            tooltipDirection = 'tooltip-bup';
         }else {
             tooltipDirection = 'tooltip-up';
             }
@@ -26,7 +32,7 @@ $(document).ready(function(){
     }    
     
     // show/hide the tooltip
-    $('.tooltip-up, .tooltip-down, .tooltip-right').mouseenter(function(){
+    $('.tooltip-up, .tooltip-down, .tooltip-right, .tooltip-bup, .tooltip-bdown, .tooltip-bright').mouseenter(function(){
                 $(this).children('.tooltip').fadeIn(100);
             }).mouseleave(function(){
                 $(this).children('.tooltip').fadeOut(100);

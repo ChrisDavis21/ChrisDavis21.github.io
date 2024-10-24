@@ -3380,11 +3380,23 @@ input, select, textarea {
 		line-height:25px;
 	}
 	
-	.tooltip-down {
+	.tooltip-bup, .tooltip-bdown, .tooltip-bright{
+		position: absolute;
+		width: 86px;
+		height: 86px;
+		border:2px solid rgba(255, 255, 255, .75);
+		border-radius:50%;
+		background:rgba(0,0,0,0);
+		color:white;
+		text-align:left;
+		line-height:25px;
+	}
+	
+	.tooltip-down, .tooltip-bdown {
 		background-position: 0 -37px;
 	}
 	
-	.tooltip-right {
+	.tooltip-right, .tooltip-bright {
 		background-position: -37px 0;
 	}
 
@@ -3412,6 +3424,16 @@ input, select, textarea {
 	}
 	
 	.tooltip-right .tooltip {
+		right: 12px;
+		left: auto;
+	}
+	
+	.tooltip-bdown .tooltip {
+		bottom: 12px;
+		top: auto;
+	}
+	
+	.tooltip-bright .tooltip {
 		right: 12px;
 		left: auto;
 	}
