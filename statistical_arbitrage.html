@@ -47,7 +47,7 @@
 							<h1>Statistical Arbitrage</h1>
 							<h2>Background</h2>
 							<p> 
-							Predicting the performance or even the direction of individual stocks can be exceptionally challenging. Instead of focusing on a single stock, market traders can employ a pairs trading stategy. 
+							Predicting the performance or even the direction of individual stocks can be exceptionally challenging. Instead of focusing on a single stock, market traders can employ a pairs trading strategy. 
 							This strategy leverages two often strongly correlated companies or indices and works by exploiting lead-lag effects or mean regression. The underlying concept is that if two correlated stocks diverge, you can take 
 							a long position on the relative underperformer and a short position on the overperformer. Both stocks can go up or down and the return will be mostly neutral, but if the stocks revert to similar relative levels you will make money. 
 							As this method is only reliant on mean reversion, it can therefore be utilized regardless of overall market performance (market neutrality). The downside is present when the stocks maintain or increase their divergence, known as drift. 
@@ -83,7 +83,7 @@
 							<p>Here the daily returns of each company is clearly quite similar. On 31/50 trading days DuPont and LyondellBasell demonstrate returns within 1% of each other. If we take the average from <b>Figure C</b> and overlay it on Apple's (AAPL) returns over those same 50 days, it is clear 
 							how different the two patterns are. Now on only 40% of days are the average of DD & LYB returns within 1% of AAPL's returns. Some shared returns are expected due to overall market trends, but generally the consumer tech market is moderately independent from specialty 
 							polymers. </p>
-							<p><b>Figures A, B, C, & D </b> are all telling the same story: DuPont and LyondellBasell share an exceptionally similar market performance profile. There is a statical term for this: cointegration. Both DD & LYB are said to be stastically cointegrated (p = 0.04) meaning that there exists some a linear combination of them that is stationary while each compononent is non-stationary. 
+							<p><b>Figures A, B, C, & D </b> are all telling the same story: DuPont and LyondellBasell share an exceptionally similar market performance profile. There is a statical term for this: cointegration. Both DD & LYB are said to be statistically cointegrated (p = 0.04) meaning that there exists some a linear combination of them that is stationary while each component is non-stationary. 
 							In partially incorrect but more understandable words, this is a fancy way of saying DD & LYB are correlated with each other over time. 
 							Predicting whether either stock will go up or down is near impossible with only price information; however, it is not unreasonable to assume that if either DD or LYB 
 							price increases or decreases, their counterpart will do the same. The challenge - how do we capitalize on this discovered pattern? <br>
@@ -132,16 +132,16 @@
 							
 							<p><span class="image rightB"><img src="images/statistical_arbitrage_7.png" alt="" /></span>
 							Let's start by splitting the entire market into more digestible categories or sectors. <a href="https://finance.yahoo.com/sectors/">Yahoo! Finance: Sectors</a> provides a good overview of these different general industries. DD & LYB are both classified under the "Basic Materials" Sector, so we can select that link to learn more. 
-							Here we can see a table listing the largest companies in this sector sorted by market cap. Let's use Python to scrape the top 100 companies from this list. Then, we can set trading exclusion criteria to see which we can immediatley eliminate. For this analysis I have chosen to yield any stock with less than 30 million dollars of daily trading volume. The idea 
+							Here we can see a table listing the largest companies in this sector sorted by market cap. Let's use Python to scrape the top 100 companies from this list. Then, we can set trading exclusion criteria to see which we can immediately eliminate. For this analysis I have chosen to yield any stock with less than 30 million dollars of daily trading volume. The idea 
 							is that lower volume stocks may be more challenging to enter or exit positions, and there is both greater risk for slippage (liquidity risk) and less volume to work toward mean reversion (model risk). This reduces the basic materials sector to 50 possible stocks. Then, we can plot the cointegration (<b> Figure H </b>) and correlation (<b> Figure I </b>) for every possible combination. 
 							Only combinations with a cointegration less than 0.075 are shown, and only combinations with correlations greater than 0.6 are shown.
 							<p><span class="image rightB"><img src="images/statistical_arbitrage_8.png" alt="" /></span>
 							Technically, cointegration values must be less than 0.05 to be statistically significant with an alpha level of 0.05, but we might want to see almost cointegrated stock pairs. This method demonstrates a large number of highly correlated stocks (by returns) as well as several cointegrated pairs exist within the Raw materials market. It is then up to the trader to further explore 
 							each pair in this sector to determine if any are viable for the strategy. Once this sector is complete, the trader may move onto other sectors for better diversification. Alternatively, as this is a market-neutral approach, they may consider one sector sufficient with adequate risk reduction measures. A common risk reduction method would be to split the available trading funds across all identified pairs of interest. 
-							Weighting for each pairing could be determined through a risk model to minimize exposure - many are commercial available (<a href="https://app2.msci.com/products/analytics/models/">See MSCI/Barra Models</a>) but may not be finanically viable for a retail investor.
+							Weighting for each pairing could be determined through a risk model to minimize exposure - many are commercial available (<a href="https://app2.msci.com/products/analytics/models/">See MSCI/Barra Models</a>) but may not be financially viable for a retail investor.
 							</p>
 							<p>
-							Below are examples of some of these pairs, feel free to plot the rest as part of your own investigation. In <b>Figure J</b> the pair with the highest correlation is overlayed on the pair with the lowest correlation. The black dots of MLM:VMC overwhelming exist around the unity line meaning that generally MLM sees very similar daily returns to VMC. Conversely the blue dots of 
+							Below are examples of some of these pairs, feel free to plot the rest as part of your own investigation. In <b>Figure J</b> the pair with the highest correlation is overlaid on the pair with the lowest correlation. The black dots of MLM:VMC overwhelming exist around the unity line meaning that generally MLM sees very similar daily returns to VMC. Conversely the blue dots of 
 							AU:ESI have almost no obvious pattern and a bad day for one stock could be fantastic on the other. 
 							<br>
 							In <b>Figure K</b>, LIN, UFPI, and VMC are all cointegrated with each other. Even at a cursory glance a number of similarities between the three traces are evident. 
