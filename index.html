@@ -53,47 +53,14 @@
 								</p>
 								</header>
 							<section class="tiles">
-								<article class="style1">
+								<article class="style5">
 									<span class="image">
-										<img src="images/letter_games_bg.png" alt="" />
+										<img src="images/recipe_statistics_bg.jpg" alt="" />
 									</span>
-									<a href="letter_games.html">
-										<h2>Letter Games</h2>
+									<a href="cooking_network.html">
+										<h2>Cooking Network</h2>
 										<div class="content">
-											<p>Exploration into five-letter words and the design of a hit game.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style2">
-									<span class="image">
-										<img src="images/Reef_fish_bg.png" alt="" />
-									</span>
-									<a href="reef_fish.html">
-										<h2>Reef Fish</h2>
-										<div class="content">
-											<p>Investigation into fish ecology and diversity in the Florida Reef Tract.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style3">
-									<span class="image">
-										<img src="images/statistical_arbitrage_bg.png" alt="" />
-									</span>
-									<a href="statistical_arbitrage.html">
-										<h2>Statistical Arbitrage</h2>
-										<div class="content">
-											<p>Introduction into scraping financial data and statistical methods for determining arbitrage opportunities.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style4">
-									<span class="image">
-										<img src="images/national_addresses_bg.png" alt="" />
-									</span>
-									<a href="national_addresses.html">
-										<h2>Address Ado</h2>
-										<div class="content">
-											<p>A look through the national address database - digging for patterns in more than 50,000,000 locations.</p>
+											<p>Imaging the Interconnectedness of Ingredients</p>
 										</div>
 									</a>
 								</article>
@@ -108,14 +75,47 @@
 										</div>
 									</a>
 								</article>
-								<article class="style6">
+								<article class="style5">
 									<span class="image">
-										<img src="images/recipe_statistics_bg.jpg" alt="" />
+										<img src="images/national_addresses_bg.png" alt="" />
 									</span>
-									<a href="cooking_network.html">
-										<h2>Cooking Network</h2>
+									<a href="national_addresses.html">
+										<h2>Address Ado</h2>
 										<div class="content">
-											<p>Imaging the Interconnectedness of Ingredients</p>
+											<p>A look through the national address database - digging for patterns in more than 50,000,000 locations.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style5">
+									<span class="image">
+										<img src="images/letter_games_bg.png" alt="" />
+									</span>
+									<a href="letter_games.html">
+										<h2>Letter Games</h2>
+										<div class="content">
+											<p>Exploration into five-letter words and the design of a hit game.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style5">
+									<span class="image">
+										<img src="images/Reef_fish_bg.png" alt="" />
+									</span>
+									<a href="reef_fish.html">
+										<h2>Reef Fish</h2>
+										<div class="content">
+											<p>Investigation into fish ecology and diversity in the Florida Reef Tract.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style5">
+									<span class="image">
+										<img src="images/statistical_arbitrage_bg.png" alt="" />
+									</span>
+									<a href="statistical_arbitrage.html">
+										<h2>Statistical Arbitrage</h2>
+										<div class="content">
+											<p>Introduction into scraping financial data and statistical methods for determining arbitrage opportunities.</p>
 										</div>
 									</a>
 								</article>
@@ -159,7 +159,8 @@
 					</div>
 
 				<!-- Footer -->
-					<footer id="footer">
+					<div id="footer-container"></div>
+					<!-- <footer id="footer">
 						<div class="inner">
 							<section>
 								<h2>Get in touch</h2>
@@ -191,7 +192,7 @@
 								<li>&copy; Chris Davis. All rights reserved</li>
 							</ul>
 						</div>
-					</footer>
+					</footer> -->
 
 			</div>
 
@@ -201,6 +202,19 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script>
+				// Dynamically load the footer
+				document.addEventListener("DOMContentLoaded", () => {
+					fetch("footer.html")
+						.then(response => {
+							if (!response.ok) throw new Error(`Failed to load footer: ${response.statusText}`);
+							return response.text();
+						})
+						.then(data => {
+							document.getElementById("footer-container").innerHTML = data;
+						})
+						.catch(error => console.error(error));
+				});
+			</script>
 	</body>
 </html>
